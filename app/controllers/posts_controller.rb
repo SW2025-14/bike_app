@@ -1,8 +1,4 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.all
-  end
-
   def new
     @post = Post.new
   end
@@ -23,6 +19,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:name, :image, :custom, :gender, :comment)
+  end
+  
+  def index
+    @posts = Post.all.order(created_at: :desc) # 新しい順に表示
   end
 end
