@@ -1,0 +1,43 @@
+<h1>投稿一覧</h1>
+
+<%= link_to "新規投稿", new_post_path, class: "button" %>
+
+<% @posts.each do |post| %>
+  <div class="post" style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+    
+    <!-- 名前 -->
+    <p><strong>名前：</strong> <%= post.name %></p>
+    
+    <!-- 写真 -->
+    <p>
+      <strong>写真：</strong><br>
+      <% if post.image.attached? %>
+        <%= image_tag post.image, width: 200 %>
+      <% else %>
+        画像なし
+      <% end %>
+    </p>
+
+    <!-- カスタム -->
+    <p><strong>カスタム：</strong> <%= post.custom %></p>
+
+    <!-- 性別 -->
+    <p><strong>性別：</strong>
+      <% if post.gender == "male" %>
+        男性
+      <% else %>
+        女性
+      <% end %>
+    </p>
+
+    <!-- コメント -->
+    <p><strong>コメント：</strong><br>
+      <%= post.comment %>
+    </p>
+
+    <p>
+      <%= link_to "詳細", post_path(post) %>
+    </p>
+
+  </div>
+<% end %>

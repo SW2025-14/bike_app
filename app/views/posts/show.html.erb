@@ -1,0 +1,25 @@
+<h1>投稿内容</h1>
+
+<p><strong>名前：</strong> <%= @post.name %></p>
+
+<p><strong>写真：</strong><br>
+  <% if @post.image.attached? %>
+    <%= image_tag @post.image %>
+  <% else %>
+    画像なし
+  <% end %>
+</p>
+
+<p><strong>カスタム：</strong> <%= @post.custom %></p>
+
+<p><strong>性別：</strong> 
+  <% if @post.gender == "male" %>
+    男性
+  <% else %>
+    女性
+  <% end %>
+</p>
+
+<p><strong>コメント：</strong><br>
+  <%= @post.comment %>
+</p>
