@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :bikes, only: [:index, :show] do
     resources :reviews, only: [:create]
   end
- d4ef78327ea74564ec142c047cd97da9505124c1
+ 
 
   get "up" => "rails/health#show", as: :rails_health_check
 
