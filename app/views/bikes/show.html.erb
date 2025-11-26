@@ -1,0 +1,50 @@
+<h2><%= @bike.name %></h2>
+<p>メーカー：<%= @bike.maker %></p>
+<% if @bike.displacement.present? %>
+  <p>排気量：<%= @bike.displacement %> cc</p>
+<% end %>
+<% if @bike.image_url.present? %>
+  <img src="<%= @bike.image_url %>" class="img-fluid mb-3" alt="<%= @bike.name %>">
+<% end %>
+<p><%= simple_format(@bike.description) %></p>
+
+<hr>
+
+<h3>レビュー一覧</h3>
+<% if @reviews.any? %>
+  <% @reviews.each do |r| %>
+    <div class="border rounded p-2 mb-2">
+      <strong><%= r.reviewer_name.presence || "名無し" %></strong>：
+      <span>★ <%= r.rating %></span><br>
+      <p><%= simple_format(r.comment) %></p>
+      <small class="text-muted"><%= l r.created_at %></small>
+    </div>
+  <% end %>
+<% else %>
+  <p>まだレビューがありません。</p>
+<% end %>
+
+<hr>
+
+<h3>レビューを書く</h3>
+<%= form_with model: [@bike, @review], local: true do |f| %>
+  <div class="mb-2">
+    <%= f.label :reviewer_name, "お名前（任意）" %>
+    <%= f.text_field :reviewer_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :rating, "評価（1〜5）" %>
+    <%= f.select :rating,
+                 options_for_select(1..5, 5),
+                 {},
+                 class: "form-select" %>
+  </div>
+
+  <div class="mb-2">
+    <%= f.label :comment, "コメント" %>
+    <%= f.text_area :comment, rows: 3, class: "form-control" %>
+  </div>
+
+  <%= f.submit "投稿", class: "btn btn-success" %>
+<% end %>

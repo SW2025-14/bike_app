@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[8.0].define(version: 2025_11_26_072008) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,10 +43,33 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_26_072008) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
+=======
+ActiveRecord::Schema[8.0].define(version: 1) do
+  create_table "bikes", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "maker", null: false
+    t.integer "displacement"
+    t.string "image_url"
+    t.text "description"
+>>>>>>> d4ef78327ea74564ec142c047cd97da9505124c1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+=======
+  create_table "reviews", force: :cascade do |t|
+    t.integer "bike_id", null: false
+    t.string "reviewer_name"
+    t.integer "rating", null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bike_id"], name: "index_reviews_on_bike_id"
+  end
+
+  add_foreign_key "reviews", "bikes"
+>>>>>>> d4ef78327ea74564ec142c047cd97da9505124c1
 end
