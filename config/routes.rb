@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  # トップページ（投稿一覧）を root に設定
-  root do
-    controller :posts do
-      action :index
-    end
-  end
+  # トップページを投稿一覧に設定
+  root "posts#index"
 
+  # 投稿リソース
   resources :posts
+
+  # 自転車リソース
   resources :bikes
+
+  # レビューリソース
   resources :reviews
 end

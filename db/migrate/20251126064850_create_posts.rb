@@ -1,8 +1,12 @@
+# db/migrate/20251126000000_create_posts.rb
 class CreatePosts < ActiveRecord::Migration[8.0]
   def change
     create_table :posts do |t|
-      t.string :title
-      t.text :content
+      t.string :name
+      t.string :photo
+      t.string :custom
+      t.string :gender
+      t.text :comment
 
       t.timestamps
     end
