@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カテゴリー別 人気バイク一覧</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    /* 上の「バイク一覧」バー */
+    .page-header {
+      color: black;
+      text-align: center;
+      padding: 16px 0;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    /* カテゴリ4つを横並び */
+    .category-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 40px;
+      flex-wrap: wrap;  /* 画面が狭いときは折り返し */
+    }
+
+    .category {
+      flex: 1;
+      min-width: 180px;      /* スマホで潰れすぎないように */
+      max-width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* 上の小さいバー（ネイキッド/SS…） */
+    .category-title {
+      color: black;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 16px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    /* 写真エリア */
+    .category-photo {
+      color: black;
+      text-align: center;
+      height: 180px;      /* ワイヤーフレームの「写真」ブロックの高さイメージ */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border-radius: 0 0 4px 4px;
+      margin-top: 8px;
+    }
+
+    .category-photo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 0 0 4px 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 上の大きい「バイク一覧」 -->
+    <div class="page-header">
+      カテゴリー別 人気バイク一覧
+    </div>
+
+    <!-- カテゴリ4つ -->
+    <div class="category-row">
+
+      <div class="category">
+        <div class="category-title">ネイキッド</div>
+        <div class="category-photo">
+          <img src="https://kawasaki-global-admin.com/ContentStorage/KMJ/ProductTrimGroup/75/e38e2437-2292-457f-b9c0-1533ccd98ea0.jpg?w=750" alt="ネイキッド">
+          
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-title">SS、レプリカ系</div>
+        <div class="category-photo">
+          <img src="https://www.yamaha-motor.co.jp/mc/lineup/yzf-r25/img/yzf-r25_index_color_2025_001.jpg" alt="SS、レプリカ系">
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-title">アメリカン</div>
+        <div class="category-photo">
+          <img src="https://www.honda.co.jp/content/dam/site/www/Rebel250/cq_img/features_02.png" alt="アメリカン">
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-title">オフロード</div>
+        <div class="category-photo">
+          <img src="https://www1.suzuki.co.jp/motor/lineup/files/images/productdetailimg_dl250rljm3_czx.jpg" alt="オフロード">
+        </div>
+      </div>
+    </div>
+    
+    <h2 style="text-align:center; margin-top:60px;">現在の人気バイクランキング!!</h2>
+      <ol style="max-width:400px; margin:20px auto; font-size:18px;">
+        <li>YAMAHA SR400</li>
+        <li>HONDA Rebel 250</li>
+        <li>Kawasaki Z900RS</li>
+        <li>YAMAHA Drug Star400</li>
+      </ol>
+
+    
+    <div style="text-align:center; margin:80px 0 40px;">
+  <a href="#" style="
+    display:inline-block;
+    padding:15px 40px;
+    background:#333;
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    border-radius:5px;
+  ">
+    お問い合わせ
+  </a>
+</div>
+
+  </div>
+</body>
+</html>
