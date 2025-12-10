@@ -1,33 +1,48 @@
 class PostsController < ApplicationController
-  # 投稿一覧
+  before_action :set_post, only: %i[show destroy like]
+
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
-  # 新規投稿フォーム
   def new
     @post = Post.new
   end
 
-  # 投稿作成
   def create
     @post = Post.new(post_params)
+    @post.likes = 0
     if @post.save
-      redirect_to posts_path, notice: "投稿が作成されました"
+      redirect_to posts_path, notice: "投稿しました"
     else
       render :new
     end
   end
 
-  # 投稿詳細
-  def show
-    @post = Post.find(params[:id])
+  def like
+    @post.increment!(:likes)
+    redirect_to posts_path
+  end
+
+  def unlike
+  @post = Post.find(params[:id])
+  @post.decrement!(:likes) if @post.likes > 0  
+  redirect_to posts_path
+  end
+
+  
+  def destroy
+    @post.destroy
+    redirect_to posts_path, notice: "投稿を削除しました"
   end
 
   private
 
-  # Strong Parameters
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
-    params.require(:post).permit(:name, :photo, :custom, :gender, :comment)
+    params.require(:post).permit(:name, :user_name, :gender, :comment, :photo)
   end
 end

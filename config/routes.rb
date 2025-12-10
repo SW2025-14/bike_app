@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  # トップページを投稿一覧に設定
+  resources :posts do
+    post :like, on: :member
+    post :unlike, on: :member 
+    resources :comments, only: [:create]
+  end
+
   root "posts#index"
-
-  # 投稿リソース
-  resources :posts
-
-  # 自転車リソース
-  resources :bikes
-
-  # レビューリソース
-  resources :reviews
 end

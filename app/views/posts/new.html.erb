@@ -1,39 +1,35 @@
 <h1>新規投稿</h1>
 
-<%= form_with model: @post, local: true do |f| %>
+<%= form_with model: @post, local: true, html: { multipart: true } do |f| %>
 
-  <!-- 名前 -->
-  <p>
-    名前：<br>
+  <div>
+    <%= f.label :user_name, "あなたの名前" %>
+    <%= f.text_field :user_name %>
+  </div>
+
+  <div>
+    <%= f.label :gender, "性別" %>
+    <%= f.select :gender, ["男", "女"] %>
+  </div>
+
+  <div>
+    <%= f.label :name, "バイクの名前" %>
     <%= f.text_field :name %>
-  </p>
+  </div>
 
-  <!-- 写真アップロード -->
-  <p>
-    写真：<br>
-    <%= f.file_field :image %>
-  </p>
+  <div>
+    <%= f.label :photo, "写真" %>
+    <%= f.file_field :photo %>
+  </div>
 
-  <!-- カスタム内容 -->
-  <p>
-    カスタム：<br>
-    <%= f.text_field :custom %>
-  </p>
-
-  <!-- 性別 -->
-  <p>
-    性別：<br>
-    <%= f.select :gender, [["男性", "male"], ["女性", "female"]] %>
-  </p>
-
-  <!-- コメント -->
-  <p>
-    コメント：<br>
+  <div>
+    <%= f.label :comment, "コメント" %>
     <%= f.text_area :comment %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <%= f.submit "投稿する" %>
-  </p>
-
+  </div>
 <% end %>
+
+<%= link_to "投稿一覧に戻る", posts_path %>

@@ -3,12 +3,14 @@
 <p><strong>名前：</strong> <%= @post.name %></p>
 
 <p><strong>写真：</strong><br>
-  <% if @post.image.attached? %>
-    <%= image_tag @post.image %>
+  <% if @post.photo.attached? %>
+    <%= image_tag @post.photo.variant(resize_to_limit: [300, 300]) %>
   <% else %>
     画像なし
   <% end %>
 </p>
+
+
 
 <p><strong>カスタム：</strong> <%= @post.custom %></p>
 
@@ -23,3 +25,24 @@
 <p><strong>コメント：</strong><br>
   <%= @post.comment %>
 </p>
+
+<p>いいね数：<%= @post.likes %></p>
+
+<%= button_to "いいね", like_post_path(@post), method: :post %>
+<%= button_to "いいね削除", unlike_post_path(@post), method: :post %>
+
+<h3>コメント一覧</h3>
+<% @post.comments.each do |comment| %>
+  <p>
+    <strong><%= comment.name %>：</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h3>コメントを書く</h3>
+<%= form_with(model: [@post, @post.comments.build]) do |f| %>
+  名前：<%= f.text_field :name %><br>
+  コメント：<br>
+  <%= f.text_area :body %><br>
+  <%= f.submit "送信" %>
+<% end %>
