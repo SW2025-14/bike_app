@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[8.0].define(version: 2025_12_03_082106) do
+=======
+ActiveRecord::Schema[8.0].define(version: 2025_11_26_072008) do
+>>>>>>> 6260610588eec27fd6d0e557f060d198582d9f3f
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,10 +43,26 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_03_082106) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+<<<<<<< HEAD
   create_table "comments", force: :cascade do |t|
     t.integer "post_id", null: false
     t.string "name"
     t.text "body"
+=======
+  create_table "bikes", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "maker", null: false
+    t.integer "displacement"
+    t.string "image_url"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+>>>>>>> 6260610588eec27fd6d0e557f060d198582d9f3f
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_name"
@@ -50,6 +70,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_03_082106) do
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
+<<<<<<< HEAD
   create_table "likes", force: :cascade do |t|
     t.integer "post_id", null: false
     t.datetime "created_at", null: false
@@ -67,10 +88,24 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_03_082106) do
     t.datetime "updated_at", null: false
     t.string "user_name"
     t.integer "likes", default: 0, null: false
+=======
+  create_table "reviews", force: :cascade do |t|
+    t.integer "bike_id", null: false
+    t.string "reviewer_name"
+    t.integer "rating", null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bike_id"], name: "index_reviews_on_bike_id"
+>>>>>>> 6260610588eec27fd6d0e557f060d198582d9f3f
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+<<<<<<< HEAD
   add_foreign_key "comments", "posts"
   add_foreign_key "likes", "posts"
+=======
+  add_foreign_key "reviews", "bikes"
+>>>>>>> 6260610588eec27fd6d0e557f060d198582d9f3f
 end

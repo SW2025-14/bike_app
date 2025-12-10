@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カテゴリー別 人気バイク一覧</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    /* 上の「バイク一覧」バー */
+    .page-header {
+      color: black;
+      text-align: center;
+      padding: 16px 0;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    /* カテゴリ4つを横並び */
+    .category-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 40px;
+      flex-wrap: wrap;  /* 画面が狭いときは折り返し */
+    }
+
+    .category {
+      flex: 1;
+      min-width: 180px;      /* スマホで潰れすぎないように */
+      max-width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* 上の小さいバー（ネイキッド/SS…） */
+    .category-title {
+      color: black;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 16px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    /* 写真エリア */
+    .category-photo {
+      color: black;
+      text-align: center;
+      height: 180px;      /* ワイヤーフレームの「写真」ブロックの高さイメージ */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border-radius: 0 0 4px 4px;
+      margin-top: 8px;
+      display: block;
+    }
+
+    .category-photo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 0 0 4px 4px;
+    }
+  .site-footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+  }
+
+  .site-footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .site-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .user-post-link {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #f5f5f5;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .user-post-link h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .user-post-link p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .post-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .post-button:hover {
+    background-color: #444;
+  }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 上の大きい「バイク一覧」 -->
+    <div class="page-header">
+      カテゴリー別 人気バイク一覧
+    </div>
+
+    <!-- カテゴリ4つ -->
+    <div class="category-row">
+
+      <div class="category">
+        <div class="category-title">< ネイキッド ></div>
+        <div class="category-photo">
+          <img src="https://kawasaki-global-admin.com/ContentStorage/KMJ/ProductTrimGroup/75/e38e2437-2292-457f-b9c0-1533ccd98ea0.jpg?w=750" alt="ネイキッド">
+          <br>Z900RS
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-title">< SS、レプリカ系 ></div>
+        <div class="category-photo">
+          <img src="https://www.yamaha-motor.co.jp/mc/lineup/yzf-r25/img/yzf-r25_index_color_2025_001.jpg" alt="SS、レプリカ系">
+          <br>yzf-r25
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-title">< アメリカン ></div>
+        <div class="category-photo">
+          <img src="https://www.honda.co.jp/content/dam/site/www/Rebel250/cq_img/features_02.png" alt="アメリカン">
+          <br>Rebel 250
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="category-title">< オフロード ></div>
+        <div class="category-photo">
+          <img src="https://www1.suzuki.co.jp/motor/lineup/files/images/productdetailimg_dl250rljm3_czx.jpg" alt="オフロード">
+          <br>Vストローム 250
+        </div>
+      </div>
+    </div>
+    
+    <h2 style="text-align:center; margin-top:60px;">現在の人気バイクランキング!!</h2>
+      <ol style="max-width:400px; margin:20px auto; font-size:18px;">
+        <li>YAMAHA SR400</li>
+        <li>HONDA Rebel 250</li>
+        <li>Kawasaki Z900RS</li>
+        <li>YAMAHA Drug Star400</li>
+      </ol>
+    
+  <div class="user-post-link">
+    <h2>みんなのバイク写真ギャラリー</h2>
+    <p>
+      ユーザーが投稿したバイク写真はこちらからご覧いただけます！
+    </p>
+    <a href="" class="post-button">
+      投稿写真ページへ →
+    </a>
+  </div>
+
+
+    
+<footer class="site-footer">
+  <div class="footer-title">お問い合わせ・引用元</div>
+
+  <p>email: 2311140043r@ed.fuk.kindai.ac.jp</p>
+  <p>電話番号：000-0000-0000</p>
+
+  <div style="margin-top:20px;">
+    <p>【引用元】</p>
+    <p>
+      <a href="https://www.kawasaki-motors.com/ja-jp/motorcycle/z/retro-sport/z900rs" target="_blank">
+        Kawasaki Z900RS
+      </a>
+    </p>
+    <p>
+      <a href="https://www.yamaha-motor.co.jp/mc/lineup/yzf-r25/" target="_blank">
+        YAMAHA YZF-R25
+      </a>
+    </p>
+    <p>
+      <a href="https://www.honda.co.jp/Rebel250/" target="_blank">
+        HONDA Rebel 250
+      </a>
+    </p>
+    <p>
+      <a href="https://www1.suzuki.co.jp/motor/lineup/dl250rljm4/?page=style" target="_blank">
+        SUZUKI V-Strom 250
+      </a>
+    </p>
+     <p>
+      <a href="https://www.goobike.com/search/ranking/day/" target="_blank">
+        グーバイク！
+      </a>
+    </p>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+</html>

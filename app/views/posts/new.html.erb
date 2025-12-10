@@ -30,6 +30,10 @@
   <div>
     <%= f.submit "投稿する" %>
   </div>
+<%= form_with model: @post, local: true do |f| %>
+
+  
+
 <% end %>
 
 <%= link_to "投稿一覧に戻る", posts_path %>
