@@ -1,13 +1,10 @@
 class PostsController < ApplicationController
-<<<<<<< HEAD
-  before_action :set_post, only: %i[show destroy like]
+  before_action :set_post, only: %i[show destroy like unlike]
 
   def index
     @posts = Post.all.order(created_at: :desc)
   end
 
-=======
->>>>>>> 6260610588eec27fd6d0e557f060d198582d9f3f
   def new
     @post = Post.new
   end
@@ -28,16 +25,17 @@ class PostsController < ApplicationController
   end
 
   def unlike
-  @post = Post.find(params[:id])
-  @post.decrement!(:likes) if @post.likes > 0  
-  redirect_to posts_path
+    @post.decrement!(:likes) if @post.likes > 0
+    redirect_to posts_path
   end
 
-  
+
   def destroy
+    @post.photo.purge if @post.photo.attached?
     @post.destroy
     redirect_to posts_path, notice: "投稿を削除しました"
   end
+
 
   private
 
@@ -46,14 +44,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-<<<<<<< HEAD
-    params.require(:post).permit(:name, :user_name, :gender, :comment, :photo)
-=======
-    params.require(:post).permit(:name, :image, :custom, :gender, :comment)
+    params.require(:post).permit(:name, :user_name, :photo, :gender, :comment)
   end
-  
-  def index
-    @posts = Post.all.order(created_at: :desc) # 新しい順に表示
->>>>>>> 6260610588eec27fd6d0e557f060d198582d9f3f
-  end
+
 end

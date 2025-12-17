@@ -9,7 +9,7 @@
 
   <div>
     <%= f.label :gender, "性別" %>
-    <%= f.select :gender, ["男", "女"] %>
+    <%= f.select :gender, [["男性", "male"], ["女性", "female"]] %>
   </div>
 
   <div>
@@ -30,9 +30,6 @@
   <div>
     <%= f.submit "投稿する" %>
   </div>
-<%= form_with model: @post, local: true do |f| %>
-
-  
 
 <% end %>
 

@@ -9,8 +9,6 @@
       <div class="post-image-box">
         <% if post.photo.attached? %>
           <%= image_tag post.photo, class: "post-image" %>
-        <% elsif post.image.attached? %>
-          <%= image_tag post.image, class: "post-image" %>
         <% else %>
           <p>画像なし</p>
         <% end %>
@@ -18,21 +16,22 @@
 
       <!-- 投稿内容 -->
       <div class="post-content">
-
-        <p><strong>投稿者:</strong> <%= post.user_name %> (<%= post.gender == "male" ? "男性" : "女性" %>)</p>
+        <p><strong>投稿者:</strong> <%= post.user_name %>
+          (<%= post.gender == "male" ? "男性" : "女性" %>)
+        </p>
 
         <p><strong>バイク名:</strong> <%= post.name %></p>
-
         <p><strong>カスタム:</strong> <%= post.custom %></p>
-
         <p><strong>コメント:</strong> <%= post.comment %></p>
-
         <p><strong>いいね:</strong> <%= post.likes %></p>
 
         <%= button_to "いいね", like_post_path(post), method: :post %>
         <%= button_to "いいね取り消し", unlike_post_path(post), method: :post %>
 
-        <p><%= link_to "詳細", post_path(post) %></p>
+        <%= link_to "削除",
+            post_path(post),
+            data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" },
+            class: "delete-button" %>
 
       </div>
 

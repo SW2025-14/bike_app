@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :posts do
     post :like, on: :member
     post :unlike, on: :member 
+    delete :destroy
+    
     resources :comments, only: [:create]
   end
 
