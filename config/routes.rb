@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  root "bikes#index"
+
+  resources :bikes
+
   resources :posts do
-    post :like, on: :member
-    post :unlike, on: :member 
-    delete :destroy
-    
+    member do
+      post :like
+      post :unlike
+    end
+
     resources :comments, only: [:create]
   end
-
-  root "posts#index"
 end

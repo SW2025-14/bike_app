@@ -1,5 +1,10 @@
-<h1>投稿一覧</h1>
-<%= link_to "新規投稿", new_post_path, class: "button" %>
+<h1 class="posts-title">
+  🏍 みんなのバイク投稿
+</h1>
+
+<div class="posts-header-bar">
+  <%= link_to "新規投稿", new_post_path, class: "button" %>
+</div>
 
 <div class="posts-container">
   <% @posts.each do |post| %>
@@ -21,12 +26,11 @@
         </p>
 
         <p><strong>バイク名:</strong> <%= post.name %></p>
-        <p><strong>カスタム:</strong> <%= post.custom %></p>
         <p><strong>コメント:</strong> <%= post.comment %></p>
         <p><strong>いいね:</strong> <%= post.likes %></p>
 
-        <%= button_to "いいね", like_post_path(post), method: :post %>
-        <%= button_to "いいね取り消し", unlike_post_path(post), method: :post %>
+        <%= button_to "👍", like_post_path(post), method: :post %>
+        <%= button_to "👎", unlike_post_path(post), method: :post %>
 
         <%= link_to "削除",
             post_path(post),
