@@ -27,6 +27,10 @@ production:
   primary:
     <<: *default
     database: storage/production.sqlite3
+    database: bike_app
+    username: 2025SW-14
+    password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+    url: <%= ENV['DATABASE_URL'] %>
   cache:
     <<: *default
     database: storage/production_cache.sqlite3
@@ -39,3 +43,4 @@ production:
     <<: *default
     database: storage/production_cable.sqlite3
     migrations_paths: db/cable_migrate
+  
